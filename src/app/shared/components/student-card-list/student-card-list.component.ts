@@ -9,4 +9,8 @@ import { Student } from 'src/app/features/students/student';
 })
 export class StudentCardListComponent {
   @Input() students!: Student[];
+
+  trackByStudentId(index: number, student: Student) {
+    return student.id;
+  }
 }

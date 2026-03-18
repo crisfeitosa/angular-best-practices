@@ -4,7 +4,7 @@
 </div>
 
 <div class="row" *ngIf="students.length">
-  <div class="col-sm-4 py-3" *ngFor="let student of students">
+  <div class="col-sm-4 py-3" *ngFor="let student of students; trackBy: trackByStudentId">
     <a class="card bg-gray" [routerLink]="['/students', student.id, 'edit']">
       <div class="card-body">
         <h5 class="card-title text-truncate">{{student.name | shortName}}</h5>
