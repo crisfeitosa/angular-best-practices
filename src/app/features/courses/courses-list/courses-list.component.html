@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center mb-4">
+  <div class="btn-group me-3">
+    <button class="btn btn-outline-purple rounded-circle me-sm-2" routerLink="/courses/new">
+      <span aria-label="New course"><i class="fas fa-plus"></i></span>
+    </button>
+    <button type="button" class="btn btn-outline-info rounded-circle" (click)="refresh()">
+      <span aria-label="Refresh courses list"><i class="fas fa-sync-alt"></i></span>
+    </button>
+  </div>
+
+  <h1 class="mb-0">Courses <span class="badge badge-purple">{{courses.length}}</span></h1>
+</div>
+
+<app-course-card-list [courses]="courses">
+</app-course-card-list>
