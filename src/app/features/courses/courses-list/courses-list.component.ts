@@ -9,7 +9,6 @@ import { CoursesService } from '../courses.service';
   styleUrls: ['./courses-list.component.css']
 })
 export class CoursesListComponent implements OnInit {
-
   courses: Course[] = [];
 
   constructor(

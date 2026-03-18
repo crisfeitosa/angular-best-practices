@@ -10,7 +10,6 @@ import { StudentsService } from '../students.service';
   styleUrls: ['./students-list.component.css']
 })
 export class StudentsListComponent implements OnInit {
-
   students: Student[] = [];
 
   constructor(private studentsService: StudentsService) { }
@@ -23,20 +22,9 @@ export class StudentsListComponent implements OnInit {
     this.loadStudents();
   }
 
-  studentShortName(student: Student) {
-    const names = student.name.split(' ');
-    return names.length > 1 ? `${names.shift()} ${names.pop()}` : student.name;
-  }
-
-  studentAge(student: Student, suffix?: string) {
-    const age = differenceInYears(Date.now(), parseISO(student.birthday));
-    return suffix ? `${age} ${suffix}` : age;
-  }
-
   private loadStudents() {
     this.studentsService.findAll().subscribe(response => {
       this.students = response;
     });
   }
-
 }
