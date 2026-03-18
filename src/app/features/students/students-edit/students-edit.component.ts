@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Course } from '../../courses/course';
-import { CoursesService } from '../../courses/courses.service';
 import { Student } from '../student';
 import { StudentsService } from '../students.service';
 
@@ -15,9 +13,7 @@ import { StudentsService } from '../students.service';
   styleUrls: ['./students-edit.component.css']
 })
 export class StudentsEditComponent implements OnInit {
-
   student!: Student;
-  courses: Course[] = [];
   studentForm!: FormGroup;
 
   constructor(
@@ -25,7 +21,6 @@ export class StudentsEditComponent implements OnInit {
     private toastr: ToastrService,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private coursesService: CoursesService,
     private studentsService: StudentsService
   ) { }
 
@@ -34,7 +29,6 @@ export class StudentsEditComponent implements OnInit {
     this.student = student;
 
     this.buildForm();
-    this.loadCourses();
   }
 
   goBack() {
@@ -63,11 +57,4 @@ export class StudentsEditComponent implements OnInit {
       courseId: [this.student.courseId, Validators.required]
     });
   }
-
-  private loadCourses() {
-    this.coursesService.findAll().subscribe(response => {
-      this.courses = response;
-    });
-  }
-
 }

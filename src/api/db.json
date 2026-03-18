@@ -18,11 +18,11 @@
   ],
   "students": [
     {
-      "id": 1,
       "name": "Pedro Henrique Lacombe",
       "email": "pedro@gmail.com",
       "birthday": "1992-08-28",
-      "courseId": 1
+      "courseId": 1,
+      "id": 1
     },
     {
       "id": 2,
@@ -35,7 +35,7 @@
       "name": "Leonardo da Silva",
       "email": "leonardo@gmail.com",
       "birthday": "1997-09-27",
-      "courseId": 1,
+      "courseId": 3,
       "id": 3
     },
     {

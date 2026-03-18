@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Course } from '../../courses/course';
-import { CoursesService } from '../../courses/courses.service';
 import { StudentsService } from '../students.service';
 
 @Component({
@@ -12,8 +10,6 @@ import { StudentsService } from '../students.service';
   styleUrls: ['./students-new.component.css']
 })
 export class StudentsNewComponent implements OnInit {
-
-  courses: Course[] = [];
   studentForm!: FormGroup;
 
   cid?: number;
@@ -22,7 +18,6 @@ export class StudentsNewComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private coursesService: CoursesService,
     private studentsService: StudentsService
   ) { }
 
@@ -34,7 +29,6 @@ export class StudentsNewComponent implements OnInit {
     }
 
     this.buildForm();
-    this.loadCourses();
   }
 
   get redirectUrl(): string {
@@ -57,11 +51,4 @@ export class StudentsNewComponent implements OnInit {
       courseId: [this.cid || '', Validators.required]
     });
   }
-
-  private loadCourses() {
-    this.coursesService.findAll().subscribe(response => {
-      this.courses = response;
-    });
-  }
-
 }
